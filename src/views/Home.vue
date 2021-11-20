@@ -46,14 +46,13 @@ export default defineComponent({
   align-items: center;
   justify-content: center;
   display: flex;
-  // align-content: space-around;
-  // padding-top: 100px;
 
   .home-container {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
     h2 {
       font-size: 15px;
       color: #000000;

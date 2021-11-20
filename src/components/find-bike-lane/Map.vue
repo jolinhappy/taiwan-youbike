@@ -75,7 +75,7 @@ export default defineComponent({
               latlng: latling,
               map: map.value,
               html: `<div class="location">
-                <img class="locaion-img" src="/img/return-location.png">
+                <img class="locaion-img" src="img/return-location.png">
                 <div class="count return">始</div>
                 </div`
             });
@@ -85,7 +85,7 @@ export default defineComponent({
               latlng: latling,
               map: map.value,
               html: `<div class="location">
-                <img class="locaion-img" src="/img/return-location.png">
+                <img class="locaion-img" src="img/return-location.png">
                 <div class="count return">終</div>
                 </div`
             });

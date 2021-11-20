@@ -29,7 +29,7 @@
       </template>
       <template #body>
         <div class="search-input">
-          <CustomSelect width="143px" height="44px" :options="taiwanLocationList" @input="getSelectedOption" default="選擇縣市"/>
+          <CustomSelect width="123px" height="44px" :options="taiwanLocationList" @input="getSelectedOption" default="選擇縣市"/>
           <el-input placeholder="尋找站點" v-model="searchInput"/>
           <el-button type="primary" @click="onSearch">
             <img src="../assets/search.png" alt="搜尋">
@@ -185,7 +185,7 @@ export default defineComponent({
     }
   }
   .el-input {
-    width: 255px;
+    width: 150px;
     border: 0px;
     margin-right: 8px;
     margin-left: 8px;
@@ -259,6 +259,13 @@ export default defineComponent({
   display: none;
 }
 
+@media screen and (min-width: 768px) {
+  .search-input {
+    .el-input {
+      width: 240px;
+    }
+  }  
+}
 @media screen and (min-width: 1280px) {
   .gps-search {
     bottom: 30px;
@@ -272,6 +279,9 @@ export default defineComponent({
   }
   .search-input {
     top: 114px;
+    .el-input {
+      width: 255px;
+    }
   }
   .back-button {
     display: none;

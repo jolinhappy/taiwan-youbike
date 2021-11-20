@@ -92,7 +92,7 @@ export default defineComponent({
               latlng: latling,
               map: map.value,
               html: `<div class="location-count">
-                <img class="locaion-img" src="${availableRentBikes === 0 ? '/img/zero.png' : '/img/rent-location.png'}">
+                <img class="locaion-img" src="${availableRentBikes === 0 ? 'img/zero.png' : 'img/rent-location.png'}">
                 <div class="count rent">${availableRentBikes}</div>
                 </div`
             });
@@ -107,7 +107,7 @@ export default defineComponent({
               latlng: latling,
               map: map.value,
               html: `<div class="location-count">
-                <img class="locaion-img" src="${availableReturnBikes === 0 ? '/img/zero.png' : '/img/return-location.png'}">
+                <img class="locaion-img" src="${availableReturnBikes === 0 ? 'img/zero.png' : 'img/return-location.png'}">
                 <div class="count return ${availableReturnBikes === 0 ? 'zero' : null}">${availableReturnBikes}</div>
                 </div`
             });
