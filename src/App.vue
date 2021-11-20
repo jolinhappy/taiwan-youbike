@@ -15,6 +15,18 @@
 #main {
   width: 100%;
   min-height: 100vh;
+  background: #E5E5E5;
+}
+
+::-webkit-scrollbar {
+width:8px;
+height:8px;
+background-color:#fff;
+}
+
+::-webkit-scrollbar-thumb {
+border-radius:10px;
+background-color:#555;
 }
 
 </style>
