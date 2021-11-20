@@ -8,6 +8,6 @@ export default {
     return apiHelper.get<IBikeShape[]>(`${basePath}/Shape/${city}`);
   },
   getFilteredCyclingShape(city: string, routeName: string) {
-    return apiHelper.get<IBikeShape[]>(`${basePath}/Shape/${city}/$filter=contains(RouteName, ${routeName})`);
+    return apiHelper.get<IBikeShape[]>(`${basePath}/Shape/${city}?$filter=RouteName eq '${routeName}'`);
   },
 }
