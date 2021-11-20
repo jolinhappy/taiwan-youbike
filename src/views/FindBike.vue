@@ -1,41 +1,60 @@
 <template>
-  <BaseLayout>
-    <template #header>
-      <div class="back-button">
+  <div class="find-bike">
+    <BaseLayout>
+      <template #header>
+        <div class="back-button">
+          <router-link to="/">
+            <el-icon>
+              <ArrowLeftBold/>
+            </el-icon>
+          </router-link> 
+        </div>
         <router-link to="/">
-          <el-icon>
-            <ArrowLeftBold/>
-          </el-icon>
-        </router-link>   
-      </div>
-    </template>
-    <template #body>
-      <div class="search-input">
-        <CustomSelect width="143px" height="44px" :options="taiwanLocationList" @input="getSelectedOption" default="選擇縣市"/>
-        <el-input placeholder="尋找站點" v-model="searchInput"/>
-        <el-button type="primary" @click="onSearch">
-          <img src="../assets/search.png" alt="搜尋">
-        </el-button>
-      </div>
-      <div class="gps-search" @click="getLocation">
-        <img src="../assets/GPS.png" alt="">
-        <p>附近</p>
-      </div>
-      <FindBikeMap :currentPosition="currentPosition" :searchType="searchType"/>
-    </template>
-    <template #footer>
-      <div class="footer">
-        <div class="footer-button" :class="{active: searchType === 'Rent'}" @click="searchType='Rent'">
-          <img :src="require(`../assets/${searchType === 'Rent' ? 'active' : 'inactive'}-rent.png`)" alt="">
-          租車
+          <div class="home-logo">
+            <img src="../assets/min-main-logo.png" alt="">
+          </div>
+        </router-link>
+        <div class="toggle-button">
+          <el-button-group>
+            <el-button :class="{active: searchType === 'Rent'}" @click="searchType='Rent'">
+              <img :src="require(`../assets/head-${searchType === 'Rent' ? 'active' : 'inactive'}-rent.png`)">
+              租車
+            </el-button>
+            <el-button :class="{active: searchType === 'Return'}" @click="searchType='Return'">
+              <img :src="require(`../assets/head-${searchType === 'Return' ? 'active' : 'inactive'}-return.png`)" alt="">
+              還車
+            </el-button>
+          </el-button-group>
         </div>
-        <div class="footer-button" :class="{active: searchType === 'Return'}" @click="searchType='Return'">
-          <img :src="require(`../assets/${searchType === 'Return' ? 'active' : 'inactive'}-return.png`)" alt="">
-          還車
+      </template>
+      <template #body>
+        <div class="search-input">
+          <CustomSelect width="143px" height="44px" :options="taiwanLocationList" @input="getSelectedOption" default="選擇縣市"/>
+          <el-input placeholder="尋找站點" v-model="searchInput"/>
+          <el-button type="primary" @click="onSearch">
+            <img src="../assets/search.png" alt="搜尋">
+          </el-button>
         </div>
-      </div>
-    </template>
-  </BaseLayout>
+        <div class="gps-search" @click="getLocation">
+          <img src="../assets/GPS.png" alt="">
+          <p>附近</p>
+        </div>
+        <FindBikeMap :currentPosition="currentPosition" :searchType="searchType"/>
+      </template>
+      <template #footer>
+        <div class="footer">
+          <div class="footer-button" :class="{active: searchType === 'Rent'}" @click="searchType='Rent'">
+            <img :src="require(`../assets/${searchType === 'Rent' ? 'active' : 'inactive'}-rent.png`)" alt="">
+            租車
+          </div>
+          <div class="footer-button" :class="{active: searchType === 'Return'}" @click="searchType='Return'">
+            <img :src="require(`../assets/${searchType === 'Return' ? 'active' : 'inactive'}-return.png`)" alt="">
+            還車
+          </div>
+        </div>
+      </template>
+    </BaseLayout>
+  </div>
 </template>
 
 <script lang="ts">
@@ -60,7 +79,6 @@ export default defineComponent({
     CustomSelect
 },
   setup() {
-    const isShowBikeLand = ref<boolean>(false);
     const taiwanLocationList = taiwanLocation;
     const selectedLocation = ref<string>('');
     const currentPosition = ref<ILatLngLiteral | null>(null);
@@ -131,6 +149,9 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+.home-logo {
+  display: none;
+}
 .search-input {
   position: absolute;
   display: flex;
@@ -142,7 +163,6 @@ export default defineComponent({
     border-radius: 8px;
   }
   .custom-select .selected.open {
-    /* border: 1px solid #ad8225; */
     border-radius: 8px 8px 0px 0px;
   }
   .custom-select .item {
@@ -235,4 +255,67 @@ export default defineComponent({
   }
 }
 
+.toggle-button {
+  display: none;
+}
+
+@media screen and (min-width: 1280px) {
+  .gps-search {
+    bottom: 30px;
+  }
+  .find-bike {
+    footer {
+      .footer {
+        display: none;
+      }
+    }
+  }
+  .search-input {
+    top: 114px;
+  }
+  .back-button {
+    display: none;
+  }
+  .home-logo {
+    display: block;
+    img {
+      width: 255px;
+      height: 43px;
+      object-fit: cover;
+    }
+  }
+  .toggle-button {
+    display: block;
+    width: 100%;
+    padding-right: 255px;
+    .el-button {
+      width: 162px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 30px;
+      border: 0px;
+      &.active {
+        background: #000;
+        span {
+          color: #FED801;
+        }
+      }
+      span {
+        display: inline-flex;
+        align-items: center;
+        color: #000;
+        font-family: 'Noto Sans TC';
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 21px;
+      }
+      img {
+        width: 32px;
+        height: 32px;
+        margin-right: 11px;
+      }
+    }
+  }
+}
 </style>

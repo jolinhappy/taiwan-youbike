@@ -9,7 +9,7 @@
       <body class="button-group">
         <el-button @click="redirecTo('FindBike')">尋找 Youbike</el-button>
         <el-button @click="redirecTo('FindBikeLane')">查詢自行車道</el-button>
-        <el-button>附近景點、美食</el-button>
+        <el-button @click="redirecTo('FindScenicFood')">附近景點、美食</el-button>
       </body>
       <footer>
         <p>Where’s YouBike  © Code: 文科少女  /  Design: KT</p>
@@ -46,11 +46,14 @@ export default defineComponent({
   align-items: center;
   justify-content: center;
   display: flex;
-  padding-top: 100px;
+  // align-content: space-around;
+  // padding-top: 100px;
+
   .home-container {
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     h2 {
       font-size: 15px;
       color: #000000;
@@ -73,7 +76,6 @@ export default defineComponent({
       display: flex;
       flex-direction: column;
       margin-bottom: 40px;
-      flex: 1;
       .el-button {
         width: 248px;
         height: 48px;
@@ -83,8 +85,8 @@ export default defineComponent({
         color: #000000;
         font-weight: bold;
         &:hover {
-          background: var(--el-color-primary);
-          border: 2px solid #ffffff;
+          background: #000;
+          border: 2px solid #000;
           color: #ffffff;
         }
         &+.el-button {
