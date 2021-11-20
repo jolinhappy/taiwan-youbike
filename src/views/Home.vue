@@ -2,7 +2,7 @@
   <div class="home">
     <div class="home-container">
       <header class="home-images">
-        <img class="bike-logo" src="../assets/home-page-logo.png" alt="腳踏車圖">
+        <img class="bike-logo" src="../assets/animation_bike.gif" alt="腳踏車圖">
         <img class="text-image" src="../assets/home-page-text.png" alt="where's your bike">
         <h2 class="title">微&nbsp;&nbsp;&nbsp;&nbsp;笑&nbsp;&nbsp;&nbsp;&nbsp;單&nbsp;&nbsp;&nbsp;&nbsp;車．暢&nbsp;&nbsp;&nbsp;&nbsp;遊&nbsp;&nbsp;&nbsp;&nbsp;城&nbsp;&nbsp;&nbsp;&nbsp;市</h2>
       </header>
