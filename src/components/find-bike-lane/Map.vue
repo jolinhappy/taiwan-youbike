@@ -23,7 +23,7 @@ export default defineComponent({
       type: Array as PropType<ILatLngLiteral[]>,
       default: () => []
     },
-    distance: {
+    zoom: {
       type: Number,
       default: 0
     }
@@ -37,11 +37,10 @@ export default defineComponent({
     const polylinePath = ref<ILatLngLiteral[]>([]);
     const startAndEnd = ref<ILatLngLiteral[]>([]);
     const initMap = () => {
-      const zoom = computed(() => props.distance > 3 ? 8 : 16);
       map.value = new window.google.maps.Map(document.getElementById("map") as Element, {
         center: center.value,
-        zoom: zoom.value,
-        maxZoom: 18,
+        zoom: props.zoom,
+        maxZoom: 20,
         minZoom: 3,
         streetViewControl: false,
         mapTypeControl: false,
@@ -111,7 +110,7 @@ export default defineComponent({
       setBikeLaneMakers();
     });
 
-    watch(() => props.distance, () => {
+    watch(() => props.zoom, () => {
       initMap();
       setBikeLaneMakers();      
     })
