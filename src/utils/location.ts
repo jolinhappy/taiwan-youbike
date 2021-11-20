@@ -33,10 +33,6 @@ export const taiwanLocation: commonObject[] = [
   },
   {
     name: '新竹市',
-    value: 'Hsinchu'
-  },
-  {
-    name: '新竹縣',
     value: 'HsinchuCounty'
   },
   {
@@ -86,9 +82,5 @@ export const taiwanLocation: commonObject[] = [
   {
     name: '澎湖縣',
     value: 'PenghuCounty'
-  },
-  {
-    name: '連江縣',
-    value: 'LienchiangCounty'
-  },
+  }
 ];

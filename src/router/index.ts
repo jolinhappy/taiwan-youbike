@@ -8,13 +8,32 @@ const routes: Array<RouteRecordRaw> = [
     component: Home
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+    path: '/find-bike',
+    name: 'FindBike',
+    component: () => import(/* webpackChunkName: "FindBike" */ '@/views/FindBike.vue'),
+    props: true,
+  },
+  {
+    path: '/find-bike-lane',
+    name: 'FindBikeLane',
+    component: () => import(/* webpackChunkName: "FindBikeLane" */ '@/views/FindBikeLane.vue'),
+    props: true,
+  },
+  {
+    path: '/find-bike-lane/map',
+    name: 'FindBikeLaneMap',
+    component: () => import(/* webpackChunkName: "FindBikeLaneMap" */ '@/components/find-bike-lane/FindBikeLaneMap.vue'),
+  },
+  {
+    path: '/scenic-food',
+    name: 'FindScenicFood',
+    component: () => import(/* webpackChunkName: "FindScenicSpot" */ '@/views/FindScenicFood.vue'),
+  },
+  {
+    path: '/scenic-food/detail',
+    name: 'ScenicFoodInfoDetail',
+    component: () => import(/* webpackChunkName: "ScenicFoodInfoDetail" */ '@/views/ScenicFoodInfoDetail.vue'), 
+  },
 ]
 
 const router = createRouter({

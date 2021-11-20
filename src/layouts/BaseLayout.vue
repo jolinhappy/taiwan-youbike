@@ -25,7 +25,7 @@ export default defineComponent({
 
 <style lang="scss">
 .baseLayout {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -39,6 +39,17 @@ export default defineComponent({
   }
   body {
     flex: 1;
+    max-height: calc(100vh - 64px);
+    overflow: auto;
   }
 }
+
+@media screen and (min-width: 1280px) {
+  .baseLayout {
+    header {
+      height: 92px;
+    }
+  }
+}
+
 </style>

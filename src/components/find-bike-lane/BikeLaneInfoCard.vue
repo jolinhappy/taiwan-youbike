@@ -2,9 +2,9 @@
   <div class="bike-lane-info-card">
     <div class="bike-lane-name">{{ info.RouteName}}</div>
     <div class="bike-lane-info">
-      <div class="bike-lane-distance">{{ info.Direction }} {{info.CyclingLength}}</div>
+      <div class="bike-lane-distance">{{ info.Direction }} {{filterDistance(info.CyclingLength)}}公里</div>
       <div class="bike-lane-location">
-        <img src="../assets/location.png" alt="地標圖">
+        <img src="../../assets/location.png" alt="地標圖">
         {{ info.City }} {{ info.Town }}
       </div>
     </div>
@@ -24,8 +24,12 @@ export default defineComponent({
     }
   },
   setup() {
-    return {}
-    
+    const filterDistance = (distance: any) => {
+      return distance ? (distance / 1000).toFixed(2) : '-';
+    };
+    return {
+      filterDistance
+    }
   },
 })
 </script>
