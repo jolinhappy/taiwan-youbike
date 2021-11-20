@@ -13,4 +13,5 @@ export interface IFormatedStationInfo {
   lng: number;
   availableRentBikes: number;
   availableReturnBikes: number;
+  stationName?: string;
 }
