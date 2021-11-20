@@ -3,7 +3,7 @@ const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 
 module.exports = {
   publicPath: process.env.NODE_ENV === "production"
-  ? '/find-bike/'
+  ? '/taiwan-youbike/'
   : '/',
   configureWebpack: {
     plugins: [
